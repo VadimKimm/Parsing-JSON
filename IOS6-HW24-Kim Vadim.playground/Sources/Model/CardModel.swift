@@ -70,4 +70,3 @@ public struct Card: Decodable {
         print("--------------------------")
     }
 }
-

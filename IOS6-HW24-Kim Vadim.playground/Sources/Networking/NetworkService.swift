@@ -35,9 +35,7 @@ public class NetworkService {
     }
 
     public static func makeRequestUrl(baseURL: String, path: String, queryItems: [URLQueryItem]?) -> URL? {
-        guard let baseURL = URL(string: baseURL) else {
-            return nil
-        }
+        guard let baseURL = URL(string: baseURL) else { return nil }
 
         let requestURL: URL
 
