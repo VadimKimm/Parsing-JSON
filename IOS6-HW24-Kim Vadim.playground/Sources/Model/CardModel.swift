@@ -44,6 +44,8 @@ public struct Card: Decodable {
     }
 
     public static func displayCardInfoOf(_ card: Card) {
+        guard card.name == "Opt" || card.name == "Black Lotus" else { return }
+
         print("""
         Название карты: \(card.name)
         Тип: \(card.type)
