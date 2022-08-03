@@ -5,12 +5,12 @@ public struct Cards: Decodable {
 }
 
 public struct Card: Decodable {
-    let name: String
+    let name: String?
     let manaCost: String?
-    let type: String
-    let rarity: String
-    let setName: String
-    let artist: String
+    let type: String?
+    let rarity: String?
+    let setName: String?
+    let artist: String?
     let power: String?
     let legalities: [LegalityElement]?
 
@@ -46,13 +46,25 @@ public struct Card: Decodable {
     public static func displayCardInfoOf(_ card: Card) {
         guard card.name == "Opt" || card.name == "Black Lotus" else { return }
 
-        print("""
-        Название карты: \(card.name)
-        Тип: \(card.type)
-        Редкость: \(card.rarity)
-        Название сета: \(card.setName)
-        Создатель: \(card.artist)
-        """)
+        if let name = card.name {
+            print("Название карты: \(name)")
+        }
+
+        if let type = card.type {
+            print("Тип: \(type)")
+        }
+
+        if let rarity = card.rarity {
+            print("Редкость: \(rarity)")
+        }
+
+        if let setName = card.setName {
+            print("Название сета: \(setName)")
+        }
+
+        if let artist = card.artist {
+            print("Создатель: \(artist)")
+        }
 
         if let manaCost = card.manaCost {
             print("Требует маны: \(manaCost)")
